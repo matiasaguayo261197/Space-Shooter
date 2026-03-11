@@ -12,11 +12,11 @@ def dibujar_interfaz_del_juego(juego_actual: Game):
     limpiar_pantalla()
     # Añadimos el indicador de ENERGÍA
     print(f"--- SPACE SHOOTER --- | PUNTAJE: {juego_actual.puntaje} | ENERGÍA: {juego_actual.nave.energia}%")
-    print("-" * (juego_actual.ancho * 2 + 3))
+   
 
     # Recorremos cada fila del mapa (coordenada vertical Y)
     for fila_y in range(juego_actual.alto):
-        linea_render = "|"
+        linea_render = " "
         
         # Recorremos cada columna de la fila (coordenada horizontal X)
         for columna_x in range(juego_actual.ancho):
@@ -25,12 +25,12 @@ def dibujar_interfaz_del_juego(juego_actual: Game):
             # 1. ¿Hay algun proyectil en esta coordenada?
             for proyectil in juego_actual.lista_de_proyectiles:
                 if proyectil.x == columna_x and proyectil.y == fila_y:
-                    caracter_a_mostrar = proyectil.icono + " "
+                    caracter_a_mostrar = proyectil.icono 
 
             # 2. ¿Hay algun enemigo en esta coordenada?
             for enemigo in juego_actual.lista_de_enemigos:
                 if enemigo.x == columna_x and enemigo.y == fila_y:
-                    caracter_a_mostrar = enemigo.icono + " "
+                    caracter_a_mostrar = enemigo.icono 
 
             # 3. ¿Esta la nave del jugador aqui?
             if juego_actual.nave.x == columna_x and juego_actual.nave.y == fila_y:
@@ -38,7 +38,7 @@ def dibujar_interfaz_del_juego(juego_actual: Game):
 
             linea_render = linea_render + caracter_a_mostrar
         
-        linea_render = linea_render + "|"
+        linea_render = linea_render + " "
         print(linea_render)
 
     # Dibujamos el suelo del mapa
