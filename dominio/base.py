@@ -1,11 +1,11 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 
 class EntidadEspacial(ABC):
     def __init__(self,x: int, y: int, icono: str):                     
         self.__x= x
         self.__y= y
         self.__icono= icono
-        self.__esta_viva= True # Protegido (_): las clases hijas pueden usarlo.
+        self.__esta_viva= True # "Privado (__): solo la clase base lo maneja"
 
     # GETTERS: Permitimos leer los datos, pero no modificarlos directamente.
     @property
@@ -31,7 +31,7 @@ class EntidadEspacial(ABC):
         return self.__esta_viva
     # POLIMORFISMO Y ABSTRACCIÓN: 
     # Obligamos a todas las hijas a implementar su propia lógica de actualización.
-    @abstractclassmethod
+    @abstractmethod
     def actualizar(self):
         """Define cómo se mueve o actúa la entidad en cada turno."""
         pass
