@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 class EntidadEspacial(ABC):
-    def __init__(self,x: int, y: int, icono: str):                     
+    def __init__(self,x, y, icono):                     
         self.__x= x
         self.__y= y
         self.__icono= icono

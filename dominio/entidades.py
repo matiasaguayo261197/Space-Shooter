@@ -2,7 +2,7 @@ import random
 from dominio.base import EntidadEspacial
 
 class Proyectil(EntidadEspacial):
-    def __init__(self, posicion_horizontal: int, posicion_vertical: int):
+    def __init__(self, posicion_horizontal, posicion_vertical):
         # Llamamos al constructor del padre y le pasamos el icono de fuego
         super().__init__(posicion_horizontal, posicion_vertical, "🔺")
 
