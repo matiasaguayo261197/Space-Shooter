@@ -55,10 +55,6 @@ class Game:
             self.__mi_nave_espacial.mover(-1, 0, self.__ANCHO_DEL_MAPA, self.__ALTO_DEL_MAPA)
         elif tecla_ingresada == "d":
             self.__mi_nave_espacial.mover(1, 0, self.__ANCHO_DEL_MAPA, self.__ALTO_DEL_MAPA)
-        elif tecla_ingresada == "w":
-            self.__mi_nave_espacial.mover(0, -1, self.__ANCHO_DEL_MAPA, self.__ALTO_DEL_MAPA)
-        elif tecla_ingresada == "s":
-            self.__mi_nave_espacial.mover(0, 1, self.__ANCHO_DEL_MAPA, self.__ALTO_DEL_MAPA)
         elif tecla_ingresada == "f":
             # La nave fabrica la bala, el motor la guarda en la lista de vuelo
             nuevo_proyectil = self.__mi_nave_espacial.disparar()
@@ -110,14 +106,14 @@ class Game:
                     if enemigo.esta_viva == False:
                         self.__puntuacion_acumulada = self.__puntuacion_acumulada + 100
 
-        # 2. NUEVA LÓGICA: Colisiones: Enemigos contra la Nave
+        # 2. Colisiones: Enemigos contra la Nave
         for enemigo in self.__lista_de_enemigos_activos:
             # Si el enemigo pisa la misma coordenada que la nave
             if enemigo.x == self.__mi_nave_espacial.x and enemigo.y == self.__mi_nave_espacial.y:
                 # El jugador recibe mucho daño y el enemigo muere al chocar
                 self.__mi_nave_espacial.recibir_danio(25) 
                 enemigo.morir()
-                print("¡ALERTA! ¡Impacto directo en el casco!")
+               
 
     def __gestionar_limpieza_de_memoria(self):
         """Bucle tradicional para filtrar solo los objetos que siguen vivos."""
