@@ -17,7 +17,7 @@ class Proyectil(EntidadEspacial):
                 self.morir()
 
 class NaveJugador(EntidadEspacial):
-    def __init__(self, posicion_horizontal: int, posicion_vertical: int):
+    def __init__(self, posicion_horizontal, posicion_vertical):
         super().__init__(posicion_horizontal, posicion_vertical, "🚀")
         # Atributo privado para la salud de la nave
         self.__energia_escudos = 100
@@ -26,7 +26,7 @@ class NaveJugador(EntidadEspacial):
     def energia(self):
         return self.__energia_escudos
 
-    def mover(self, cambio_en_x: int, cambio_en_y: int, limite_ancho: int, limite_alto: int):
+    def mover(self, cambio_en_x, cambio_en_y, limite_ancho, limite_alto):
         """Calcula el movimiento y verifica que no choque con las paredes invisibles."""
         nueva_posicion_x = self.x + cambio_en_x
         nueva_posicion_y = self.y + cambio_en_y
@@ -46,17 +46,17 @@ class NaveJugador(EntidadEspacial):
         nueva_bala = Proyectil(self.x, self.y - 1)
         return nueva_bala
 
-    def recibir_danio(self, cantidad_de_danio: int):
+    def recibir_danio(self, cantidad_de_danio):
         """Resta energia y mata a la nave si llega a cero."""
         self.__energia_escudos = self.__energia_escudos - cantidad_de_danio
         if self.__energia_escudos <= 0:
             self.morir()
 
-    def actualizar(self):
+    def actualizar(self): #polimorfismo pasivo
        pass
 
-class Enemigo(EntidadEspacial):
-    def __init__(self, posicion_horizontal: int, posicion_vertical: int):
+class Enemigo(EntidadEfspacial):
+    def __init__(self, posicion_horizontal, posicion_vertical):
         super().__init__(posicion_horizontal, posicion_vertical, "👾")
         # El enemigo aguanta entre 3 y 5 disparos (Requisito cumplido)
         self.__puntos_de_vida = random.randint(3, 5)
