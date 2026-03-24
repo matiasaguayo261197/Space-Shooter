@@ -36,9 +36,6 @@ class NaveJugador(EntidadEspacial):
         if nueva_posicion_x >= 0 and nueva_posicion_x <= (limite_ancho - 1):
             self.x = nueva_posicion_x
             
-        # Verificamos que no se salga por arriba (0) ni por abajo (alto)
-        if nueva_posicion_y >= 0 and nueva_posicion_y <= (limite_alto - 1):
-            self.y = nueva_posicion_y
 
     def disparar(self):
         """Crea una nueva instancia de Proyectil justo arriba de la nave."""
@@ -55,7 +52,7 @@ class NaveJugador(EntidadEspacial):
     def actualizar(self): #polimorfismo pasivo
        pass
 
-class Enemigo(EntidadEfspacial):
+class Enemigo(EntidadEspacial):
     def __init__(self, posicion_horizontal, posicion_vertical):
         super().__init__(posicion_horizontal, posicion_vertical, "👾")
         # El enemigo aguanta entre 3 y 5 disparos (Requisito cumplido)

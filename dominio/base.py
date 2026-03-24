@@ -8,11 +8,11 @@ class EntidadEspacial(ABC):
         self.__esta_viva= True # "Privado (__): solo la clase base lo maneja"
 
     # GETTERS: Permitimos leer los datos, pero no modificarlos directamente.
-    @property
+    @property                         # @property: Permite leer el atributo privado desde el exterior como solo lectura.
     def x (self):
         return self.__x
-    @x.setter
-    def x (self,nuevo_valor):# Aquí puedes validar que la nave no se salga de la pantalla
+    @x.setter                         # @x.setter: Habilita la modificación controlada del atributo privado '__x' desde el exterior.
+    def x (self,nuevo_valor):
         self.__x= nuevo_valor
 
     @property
