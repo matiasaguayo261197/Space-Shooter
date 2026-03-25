@@ -72,13 +72,14 @@ class Game:
     def actualizar_todo_el_mundo(self):
         """Actualiza la posicion de cada objeto y revisa las reglas del juego."""
         
-        # 1. Actualizamos cada enemigo usando un nombre de iterador claro
+        # 1. Actualizamos cada enemigo
         for enemigo_actual in self.__lista_de_enemigos_activos:
             enemigo_actual.actualizar()
 
         # 2. Actualizamos cada proyectil
         for proyectil_actual in self.__lista_de_proyectiles_en_vuelo:
             proyectil_actual.actualizar()
+
 
         # 3. La nave tambien tiene su actualizacion interna
         self.__mi_nave_espacial.actualizar()
