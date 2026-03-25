@@ -29,7 +29,7 @@ class NaveJugador(EntidadEspacial):
     def mover(self, cambio_en_x, cambio_en_y, limite_ancho, limite_alto):
         """Calcula el movimiento y verifica que no choque con las paredes invisibles."""
         nueva_posicion_x = self.x + cambio_en_x
-        nueva_posicion_y = self.y + cambio_en_y
+        
 
         # --- Lógica de Bordes Invisibles ---
         # Verificamos que no se salga por la izquierda (0) ni por la derecha (ancho)
